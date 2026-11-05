@@ -1,0 +1,8 @@
+{
+  "name": "fix-expression",
+  "_about": "Edit mode: any config with \"images\" uses the models' edit endpoints. Paths are relative to this file.",
+  "images": ["../path/to/source.png"],
+  "prompt": "Change only the capybara's face to a calm, content, gently smiling expression with relaxed half-closed eyes. Keep everything else exactly the same.",
+  "models": ["nano-banana-2.1", "flux-3"],
+  "aspect": "auto"
+}

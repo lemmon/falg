@@ -1,0 +1,19 @@
+{
+  "name": "styles",
+  "_about": "Two subjects x two styles x three models. Pick a subset with --only subject=fox style=riso.",
+  "models": ["nano-banana-2.1", "gpt-image-2.5", "seedream-5-pro"],
+  "aspect": "1:1",
+  "n": 1,
+  "template": "{subject}. Style: {style} {background}",
+  "vars": {
+    "subject": {
+      "fox": "A cheerful red fox reading a newspaper on a park bench",
+      "owl": "A tiny owl astronaut floating among stars"
+    },
+    "style": {
+      "riso": "Retro risograph print with 3 spot colours, coarse halftone dots, slight misregistration.",
+      "lineart": "Bold, clean hand-drawn ink line art with a few spot-colour accents and lots of open space."
+    },
+    "background": "Isolated on a plain flat white background, no text, no frame."
+  }
+}

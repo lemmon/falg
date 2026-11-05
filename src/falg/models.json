@@ -1,0 +1,93 @@
+{
+  "_comment": [
+    "Built-in model registry. Prices are rough USD estimates per output image (checked 2026-11-05);",
+    "fal's dashboard is authoritative. Extend or override in ~/.config/falg/models.json or in a",
+    "job config under \"model_defs\" (same shape; entries are merged per model and per mode).",
+    "size modes: px = image_size {width,height} from aspect + target pixel count (multiple of 16);",
+    "aspect = aspect_ratio param (resolution goes in params); enum = image_size from enum_map; none.",
+    "batch = send num_images in one request; max_batch = the endpoint's num_images maximum (from",
+    "`falg schema`); larger n is split into several requests. Without max_batch, falg assumes 4."
+  ],
+  "seedream-5-pro": {
+    "note": "ByteDance flagship (Jul 2026), ~4.6 MP max",
+    "generate": {"endpoint": "bytedance/seedream/v5/pro/text-to-image", "price": 0.135, "default": true,
+                 "size": "px", "pixels": 4596736, "batch": true, "max_batch": 6, "params": {"output_format": "png"}},
+    "edit": {"endpoint": "bytedance/seedream/v5/pro/edit", "price": 0.14,
+             "size": "none", "params": {"output_format": "png", "image_size": "auto_2K"}}
+  },
+  "flux-3": {
+    "note": "Black Forest Labs (Oct 2026), native 2K; billed $0.048/MP, price = 2K square (~4.2 MP)",
+    "generate": {"endpoint": "blackforestlabs/flux-3/text-to-image", "price": 0.2, "default": true,
+                 "size": "aspect", "params": {"resolution": "2k", "output_format": "png"}},
+    "edit": {"endpoint": "blackforestlabs/flux-3/edit-image", "price": 0.2, "default": true,
+             "size": "aspect", "params": {"resolution": "2k", "output_format": "png"}}
+  },
+  "nano-banana-2.1": {
+    "note": "Google (Oct 2026), 2K; best editor for keeping a scene intact",
+    "generate": {"endpoint": "google/nano-banana-2.1", "price": 0.059, "default": true,
+                 "size": "aspect", "batch": true, "max_batch": 4, "params": {"resolution": "2K", "output_format": "png"}},
+    "edit": {"endpoint": "google/nano-banana-2.1/edit", "price": 0.063, "default": true,
+             "size": "aspect", "params": {"resolution": "2K", "output_format": "png"}}
+  },
+  "gpt-image-2.5": {
+    "note": "OpenAI 'flare' (Sep 2026), 2048 sq / 2496x1664, quality high",
+    "generate": {"endpoint": "openai/gpt-image-2.5/flare/text-to-image", "price": 0.06, "default": true,
+                 "size": "px", "pixels": 4194304, "batch": true, "max_batch": 10,
+                 "params": {"quality": "high", "background": "opaque", "output_format": "png"}},
+    "edit": {"endpoint": "openai/gpt-image-2.5/flare/edit", "price": 0.07,
+             "size": "none", "params": {"quality": "high", "output_format": "png"}}
+  },
+  "gpt-image-2.6": {
+    "note": "OpenAI (Nov 4 2026), superset of 2.5: adds reasoning_effort, svg/gif output; price = 2.5 guess",
+    "generate": {"endpoint": "openai/gpt-image-2.6/flare/text-to-image", "price": 0.06,
+                 "size": "px", "pixels": 4194304, "batch": true, "max_batch": 10,
+                 "params": {"quality": "high", "background": "opaque", "output_format": "png"}},
+    "edit": {"endpoint": "openai/gpt-image-2.6/flare/edit", "price": 0.07,
+             "size": "none", "params": {"quality": "high", "output_format": "png"}}
+  },
+  "gpt-image-2.6-sunburst": {
+    "note": "OpenAI 2.6 precision variant; real cost may be higher",
+    "generate": {"endpoint": "openai/gpt-image-2.6/sunburst/text-to-image", "price": 0.10,
+                 "size": "px", "pixels": 4194304, "batch": true, "max_batch": 10,
+                 "params": {"quality": "high", "background": "opaque", "output_format": "png"}},
+    "edit": {"endpoint": "openai/gpt-image-2.6/sunburst/edit", "price": 0.10,
+             "size": "none", "params": {"quality": "high", "output_format": "png"}}
+  },
+  "gpt-image-2.5-sunburst": {
+    "note": "OpenAI precision variant, finer detail, slower; real cost may be higher",
+    "generate": {"endpoint": "openai/gpt-image-2.5/sunburst/text-to-image", "price": 0.10,
+                 "size": "px", "pixels": 4194304, "batch": true, "max_batch": 10,
+                 "params": {"quality": "high", "background": "opaque", "output_format": "png"}}
+  },
+  "nano-banana-pro": {
+    "note": "Google (Nov 2025), larger 'Pro' tier, older than 2.1",
+    "generate": {"endpoint": "fal-ai/nano-banana-pro", "price": 0.15,
+                 "size": "aspect", "batch": true, "max_batch": 4, "params": {"resolution": "2K", "output_format": "png"}},
+    "edit": {"endpoint": "fal-ai/nano-banana-pro/edit", "price": 0.15,
+             "size": "aspect", "params": {"resolution": "2K", "output_format": "png"}}
+  },
+  "seedream-5-lite": {
+    "note": "cheap, up to ~6 MP",
+    "generate": {"endpoint": "bytedance/seedream/v5/lite/text-to-image", "price": 0.035,
+                 "size": "px", "pixels": 6000000, "batch": true, "max_batch": 6, "params": {"output_format": "png"}}
+  },
+  "seedream-5-flash": {
+    "note": "cheapest/fastest",
+    "generate": {"endpoint": "bytedance/seedream/v5/flash/text-to-image", "price": 0.027,
+                 "size": "px", "pixels": 4596736, "batch": true, "max_batch": 6, "params": {"output_format": "png"}}
+  },
+  "ideogram-4.5": {
+    "note": "Ideogram (Sep 2026), strong at graphic styles and text; only sizes from its list are accepted",
+    "generate": {"endpoint": "ideogram/v4.5", "price": 0.06,
+                 "size": "enum", "enum_map": {"1:1": {"width": 2048, "height": 2048}, "3:2": {"width": 2496, "height": 1664}, "2:3": {"width": 1664, "height": 2496}, "4:3": {"width": 2304, "height": 1728}, "3:4": {"width": 1728, "height": 2304}, "5:4": {"width": 2240, "height": 1792}, "4:5": {"width": 1792, "height": 2240}, "16:9": {"width": 2560, "height": 1440}, "9:16": {"width": 1440, "height": 2560}, "16:10": {"width": 2560, "height": 1600}, "10:16": {"width": 1600, "height": 2560}, "2:1": {"width": 2880, "height": 1440}, "1:2": {"width": 1440, "height": 2880}},
+                 "batch": true, "max_batch": 8,
+                 "params": {"quality": "medium", "enable_prompt_expansion": false}}
+  },
+  "recraft-vector": {
+    "note": "SVG vector output, simplifies fine detail",
+    "generate": {"endpoint": "fal-ai/recraft/v4.1/pro/text-to-vector", "price": 0.30,
+                 "size": "enum", "enum_map": {"1:1": "square_hd", "4:3": "landscape_4_3",
+                 "3:2": "landscape_4_3", "16:9": "landscape_16_9", "3:4": "portrait_4_3",
+                 "2:3": "portrait_4_3", "9:16": "portrait_16_9"}}
+  }
+}

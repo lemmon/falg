@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "falg"
+version = "0.1.0"
+description = "Generate and edit images on fal.ai from JSON job configs: prompt x model grids, sidecar JSON per output, comparison gallery"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Jakub Pelák" }]
+keywords = ["fal", "fal.ai", "image generation", "cli", "prompt", "batch", "dtf", "background removal"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Topic :: Multimedia :: Graphics",
+]
+dependencies = []  # the fal part is standard library only
+
+[project.optional-dependencies]
+cutout = ["numpy", "Pillow", "scipy"]
+
+[project.urls]
+Homepage = "https://github.com/lemmon/falg"
+Issues = "https://github.com/lemmon/falg/issues"
+
+[project.scripts]
+falg = "falg.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+falg = ["models.json"]

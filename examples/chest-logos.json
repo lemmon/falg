@@ -1,0 +1,35 @@
+{
+  "name": "chest-logos",
+  "_about": "Left-chest T-shirt logos: absurd animal occupations in a riso style (gpt-image-2.5 gave the best results in testing). Then: falg cutout <file> --fit 8.5 8.5 --min-line-mm 0.5 -o prints/",
+  "models": ["gpt-image-2.5"],
+  "aspect": "1:1",
+  "template": [
+    "{subject}: chest-up portrait bust. Dignified, deadpan and quietly funny.",
+    "Style: {style} {composition} {background} {fill} {audience} {common} {colour}"
+  ],
+  "vars": {
+    "subject": {
+      "sloth-firefighter": "A sloth firefighter wearing a big firefighter helmet and a heavy fire coat, holding a tiny coiled hose, eyes half-closed, utterly unhurried",
+      "goose-security": "A goose security guard wearing a peaked security cap, dark sunglasses and a jacket with a badge, neck held stiffly upright, very serious",
+      "walrus-lifeguard": "A walrus lifeguard with a whistle on a cord, a lifeguard tank top and a sun visor, big tusks and moustache, calmly on duty",
+      "raccoon-chef": "A raccoon sushi chef wearing a white headband and a chef's jacket, proudly holding up one piece of sushi",
+      "pelican-postman": "A pelican postman wearing a postman's cap and a uniform jacket, a letter sticking out of its big beak pouch"
+    },
+    "style": {
+      "riso": "Retro risograph print with 3 spot colours (fluorescent orange, teal, warm brown). All shading made of visible coarse halftone dots and grain, slight misregistration between colour layers, plenty of white space inside the figures.",
+      "lineart": {
+        "text": "Bold, clean hand-drawn ink line art with confident outlines and simple interior lines. Lots of open space, simple charm. Not a sticker: no die-cut outline, no white border around the figures.",
+        "set": {"colour": "One ink only: everything drawn in a single hot neon pink colour (#FF2D95) on white."}
+      }
+    },
+    "composition": "A small left-chest logo design. Square image; the design has a compact, roughly square or slightly tall silhouette, centered, filling about 90% of the image height with a thin margin.",
+    "background": "Isolated on a plain flat pure white background (#FFFFFF) filling the whole image. White areas of the image will be left unprinted.",
+    "fill": "It will be printed small, about 8.5 cm wide, so keep it bold and simple: thick confident strokes, chunky shapes, solid areas are fine. No hairlines, no fine hatching, no tiny dots, no small details that would disappear at small size.",
+    "audience": "For older kids and adults.",
+    "common": [
+      "Flat digital print artwork, viewed straight on: just the design itself, NOT a photo or mockup of a garment, no fabric, no product shot.",
+      "No text, no lettering, no signature, no ground shadow. No soft gradients, no airbrush, no glow, no semi-transparent washes. No frame, no border."
+    ],
+    "colour": "Hot neon pink (#FF2D95) is the dominant colour, with at most one or two small accent colours."
+  }
+}
