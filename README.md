@@ -38,16 +38,19 @@ Other tools take different approaches; one of them may suit you better:
 - **[llm-fal](https://pypi.org/project/llm-fal/)**: fal models inside Simon Willison's `llm`.
 
 falg focuses on config-driven batches: prompt × model grids, a sidecar per output, and a
-comparison gallery. Some of its planned ideas come from these projects (see [IDEAS.md](IDEAS.md)).
+comparison gallery. Some of its planned ideas come from these projects (see [IDEAS.md](https://github.com/lemmon/falg/blob/main/IDEAS.md)).
 
 ## Install
 
 Requires Python 3.10+.
 
 ```sh
-pipx install 'git+https://github.com/lemmon/falg.git#egg=falg[cutout]'
-# or: uv tool install 'falg[cutout] @ git+https://github.com/lemmon/falg.git'
+pipx install 'falg[cutout]'
+# or: uv tool install 'falg[cutout]'
 ```
+
+To run the latest unreleased version, install from GitHub:
+`pipx install 'falg[cutout] @ git+https://github.com/lemmon/falg.git'`.
 
 The fal part is standard library only. The optional `[cutout]` extra adds numpy, Pillow and
 SciPy for `falg cutout`; leave it out if you only generate.
