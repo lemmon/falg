@@ -1,7 +1,7 @@
 # falg
 
-A small CLI for generating and editing images on [fal.ai](https://fal.ai). A JSON config sets
-up a prompt template, its variables and the models. falg runs every combination in parallel
+Generate and edit images on [fal.ai](https://fal.ai) from a JSON config. The config sets up
+a prompt template, its variables and the models. falg runs every combination in parallel
 and downloads the results. Each output gets a `.json` sidecar describing how it was made, and
 each run gets an HTML gallery for comparing the results side by side.
 
@@ -10,6 +10,10 @@ falg run examples/styles.json --only subject=fox --dry-run   # preview prompts a
 falg run examples/styles.json --only subject=fox -y          # 2 styles x 3 models, in parallel
 open examples/generations/*-styles/index.html                # compare the results
 ```
+
+![The gallery from one run: a capybara in three styles (rows) from four models (columns)](https://raw.githubusercontent.com/lemmon/falg/main/docs/gallery.jpg)
+
+*The gallery from one run: three styles (rows) × four models (columns), 12 images.*
 
 > **Unofficial.** falg is a community tool, not affiliated with or endorsed by fal.ai. It
 > uses fal's public queue API with your own API key; generations are billed to your fal account.
@@ -21,6 +25,10 @@ variations: several styles and models, compared side by side, then turned into
 print-ready PNGs. Beyond that, the goal is to automate image generation for other projects
 too. The same config can be rerun later, each image records how it was made, and scripts
 or AI agents can drive it without prompts. `cutout` is the only print-specific part.
+
+![Demo print files: five capybaras for light shirts and four road trip scenes for dark shirts](https://raw.githubusercontent.com/lemmon/falg/main/docs/prints.jpg)
+
+*Demo print files from that project, generated with `falg run` and prepared with `falg cutout`.*
 
 ## Similar projects
 
@@ -246,6 +254,10 @@ This removes a plain **white** background (art drawn on white) or a **black** on
 - **One ink:** `--ink "#RRGGBB"` makes everything that prints a single colour.
 - **Checks:** reports coverage and how much ink sits in marks thinner than `--min-line-mm`.
 - **Previews:** the design on a fabric colour, plus a 100% detail crop on the opposite tone, where any fringe shows. `--no-preview` skips them.
+
+![A plain threshold leaves a light rim around every line; falg cutout does not](https://raw.githubusercontent.com/lemmon/falg/main/docs/cutout.jpg)
+
+*2× zoom on a dark background. Left: keeping every pixel darker than 235 leaves a light rim around each line and grey speckle. Right: `falg cutout`.*
 
 Run `falg cutout -h` for the full explanation and tuning flags (`--low`, `--high`, `--soft`, `--min-speck`).
 
